@@ -99,6 +99,8 @@ button {
   height: 100vh;
   overflow: hidden;
   position: relative;
+    z-index: 6;
+  
 }
 .portada img {
   width: 100%;
@@ -193,24 +195,31 @@ button {
 
 
 .text2 {
+    font-size: 1.3rem;
   position: absolute;
   top: 120vh;
   left: 0;
   width: 100vw;
   overflow: hidden;
   white-space: nowrap;
-  font-size: 1.4rem;
-}
-.text2 p {
-  display: inline-block;
-  padding-left: 100%;
-  animation: marquesinaContinua 20s linear infinite;
+  display: flex;
 }
 
-@keyframes marquesinaContinua {
-  from { transform: translateX(0); }
-  to { transform: translateX(-100%); }
+.text2 p {
+  display: inline-block;
+  padding-right: 2rem; /* pequeño espacio entre repeticiones */
+  animation: scroll-infinito 30s linear infinite;
 }
+
+@keyframes scroll-infinito {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
 
 
 .text7  { top: 150vh; left: 25vw; width: 45vw;font-size: 1.5rem; }/*alinear txt*/
@@ -266,6 +275,9 @@ button {
   font-family: AncaCoder;
   line-height: 1.4;
 }
+.text4{
+    z-index: 5;
+}
 .text4, .text10, .text11{
   color:rgba(146, 146, 146, 0.599); 
   font-family:  "CocoBiker", sans-serif;
@@ -280,16 +292,99 @@ button {
 /* -------------------- MEDIA QUERIES -------------------- */
 
 <!--/* --- Laptops medianos (hasta 1440px) --- */
-@media (max-width: 1440px) and (min-width: 1025px) {
+@media (max-width: 1440px) {
   .texto {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
 
   }
 
 
   /* --- Textos individuales con unidades relativas --- */
+.text4  { top: -9vh; left: 45vw; width: 90vw;
+    font-size: 6rem;
+}
+
+.text1  { top: 20vh;  left: 5vw; width: 45vw; }
+.img3  { top: 20vh;   left: 60vw;   width: 40vw; }
+
+.text5  { top: 65vh; left: 25vw; width: 35vw;}
+.img4  { top: 60vh;   left: 3vw;   width: 20vw; }
+
+
+
+.text2 {
+  position: absolute;
+  top: 120vh;
+  left: 0;
+  width: 100vw;
+  overflow: hidden;
+  white-space: nowrap;
+    display: flex;
+  font-size: 2rem;
+}
+.text2 p {
+  display: inline-block;
+  padding-left: 2rem;
+  animation: scroll-infinito 20s linear infinite;
+}
+
+@keyframes scroll-infinito {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
+
+.text7  { top: 150vh; left: 25vw; width: 45vw; }/*alinear txt*/
+.img6  { top: 130vh;  left: -1vw;    width: 20vw; }
+.img5  { top: 140vh;  left: 75vw;    width: 25vw;}
+
+
+.text8  { top: 190vh; left: 10vw;  width: 60vw;}
+.img7  { top: 160vh;  left: 40vw;   width: 70vw; }
+
+.text9  { top: 240vh; left: 5vw;  width: 40vw; }
+
+.text3  { top: 290vh; left: 45vw; width: 30vw; font-family: CocoBiker; font-size:5.5rem; }
+.img8  { top: 295vh;  left: -15vw;   width: 55vw; }
+
+.text19 { top: 350vh; left: 45vw; width: 40vw;}
+.img9  { top: 380vh;  left: 0vw;   width: 100vw; }
+
+
+
+
+
+.text6  { top: 85vh; left: 15vw; width: 65vw;}
+
+
+.text10 { top: 330vh; left: 82vw; width: 30vw; transform: rotate(-90deg);
+   font-size: 3rem;
+  text-shadow: 1px 0 currentColor, -1px 0 currentColor, 0 1px currentColor, 0 1px currentColor;}/*nayromuun*/
+
+.text11 { top: -17vh; left: -43vw;  width: 90vw; transform: rotate(-90deg);
+    font-size: 2.5rem;
+  color:rgba(146, 146, 146, 0.427); 
+  font-family:  "CocoBiker", sans-serif;
+  font-weight: normal;
+  text-shadow: 1px 0 currentColor, -1px 0 currentColor, 0 1px currentColor, 0 1px currentColor;}/*nayromuun*/
+
+
+}
+
+
+/* --- Tablets grandes y medianas (hasta 1024px) --- */
+@media (max-width: 1024px)  {
+  #luna {
+    width: 55vw;
+    top: 12vh;
+  }
+  .texto {
+    font-size: 1.4rem;
+    width: 70vw; /* más angosto para que no tape tanto */
+  }
+
 .text4  { top: -12vh; left: 40vw; width: 90vw;
-    font-size: 8rem;
+    font-size: 5.5rem;
 }
 
 .text1  { top: 20vh;  left: 5vw; width: 35vw; font-size: 1.4rem; }
@@ -308,14 +403,15 @@ button {
   overflow: hidden;
   white-space: nowrap;
   font-size: 1.4rem;
+    display: flex;
 }
 .text2 p {
   display: inline-block;
-  padding-left: 100%;
-  animation: marquesinaContinua 20s linear infinite;
+  padding-left: 2rem;
+  animation: scroll-infinito 30s linear infinite;
 }
 
-@keyframes marquesinaContinua {
+@keyframes scroll-infinito {
   from { transform: translateX(0); }
   to { transform: translateX(-100%); }
 }
@@ -326,15 +422,15 @@ button {
 .img5  { top: 140vh;  left: 75vw;    width: 25vw;}
 
 
-.text8  { top: 200vh; left: 10vw;  width: 60vw; font-size: 1.5rem;}
+.text8  { top: 190vh; left: 5vw;  width: 60vw; font-size: 1.5rem;}
 .img7  { top: 160vh;  left: 40vw;   width: 70vw; }
 
 .text9  { top: 240vh; left: 5vw;  width: 40vw; font-size: 1.5rem;}
 
-.text3  { top: 290vh; left: 45vw; width: 30vw; font-family: CocoBiker; font-size:5.5rem; }
+.text3  { top: 290vh; left: 45vw; width: 50vw; font-family: CocoBiker; font-size:5.5rem; }
 .img8  { top: 295vh;  left: -15vw;   width: 55vw; }
 
-.text19 { top: 350vh; left: 45vw; width: 40vw; font-size: 1.5rem;}
+.text19 { top: 355vh; left: 45vw; width: 40vw; font-size: 1.5rem;}
 .img9  { top: 380vh;  left: 0vw;   width: 100vw; }
 
 
@@ -358,66 +454,8 @@ button {
 
 }
 
-/* --- Tablets grandes y medianas (hasta 1024px) --- */
-@media (max-width: 1024px) and (min-width: 769px) {
-  #luna {
-    width: 55vw;
-    top: 12vh;
-  }
-  .texto {
-    font-size: 1.4rem;
-    width: 70vw; /* más angosto para que no tape tanto */
-  }
-
-
-.text1  { top: 7vh;  left: 5vw; width: 35vw; }
-.img3  { top: 7vh;   left: 40vw;   width: 80vw; }
-
-.text5  { top: 45vh; left: 45vw; width: 55vw; }
-.img4  { top: 50vh;   left: 0vw;   width: 45vw; }
-
-
-.text2  { top: 85vh; left: 15vw; width: 100vw; }/*marquesina*/
-
-.text7  { top: 120vh; left: 20vw; width: 70vw; }/*alinear txt*/
-.img6  { top: 100vh;  left: 60vw;    width: 30vw; }
-.img5  { top: 140vh;  left: 0vw;    width: 35vw;}
-
-
-.text8  { top: 160vh; left: 5vw;  width: 80vw; }
-.img7  { top: 155vh;  left: 20vw;   width: 80vw; }
-
-.text9  { top: 210vh; left: 5vw;  width: 90vw; }
-
-.text3  { top: 230vh; left: 5vw; width: 10vw; font-family: CocoBiker; font-size:3rem; }
-.img8  { top: 265vh;  left: 0vw;   width: 60vw; }
-
-.text19 { top: 270vh; left: 45vw; width: 40vw; }
-.img9  { top: 295vh;  left: 0vw;   width: 100vw; }
-
-
-
-.text6  { top: 85vh; left: 15vw; width: 65vw; }
-
-
-
-.text10 { top: 275vh; left: 80vw; width: 30vw; transform: rotate(-90deg);
-    font-size: 1.7rem;
-  color:rgba(146, 146, 146, 0.599); 
-  font-family:  "CocoBiker", sans-serif;
-  font-weight: normal;
-  text-shadow: 1px 0 currentColor, -1px 0 currentColor, 0 1px currentColor, 0 1px currentColor;}/*nayromuun*/
-
-
-.text11 { top: 185vh; left: 5vw;  width: 90vw; }
-
-
-
-
-}
-
 /* --- Tablets chicas y celulares grandes (hasta 768px) --- */
-@media (max-width: 768px) and (min-width: 481px){
+@media (max-width: 768px) {
   #luna {
     width: 65vw;
     top: 23vh;
@@ -427,7 +465,7 @@ button {
     width: 90vh;
   }
   .texto {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     width: 80vw;  /* mantiene posición pero se achica */
     }
     #fondo {
@@ -459,15 +497,16 @@ button {
   width: 100vw;
   overflow: hidden;
   white-space: nowrap;
+    display: flex;
 }
 
 .text2 p {
   display: inline-block;
-  padding-left: 100%;
-  animation: marquesinaContinua 15s linear infinite;
+  padding-left: 2rem;
+  animation: scroll-infinito 30s linear infinite;
 }
 
-@keyframes marquesinaContinua {
+@keyframes scroll-infinito {
   from { transform: translateX(0); }
   to { transform: translateX(-100%); }
 }
@@ -475,7 +514,7 @@ button {
 
 /*.text7  { top: 120vh; left: 20vw; width: 70vw; }/*alinear txt*/
 .text7 {
-  top: 120vh;
+  top: 125vh;
   left: 50%;
   width: 70vw;
   transform: translateX(-50%);
@@ -483,23 +522,23 @@ button {
 }
 
 
-.img6  { top: 100vh;  left: 60vw;    width: 30vw; }
-.img5  { top: 140vh;  left: 0vw;    width: 35vw;}
+.img6  { top: 95vh;  left: 60vw;    width: 30vw; }
+.img5  { top: 135vh;  left: 0vw;    width: 35vw;}
 
 
-.text8  { top: 160vh; left: 5vw;  width: 80vw; }
-.img7  { top: 150vh;  left: 10vw;   width: 120vw; transform: rotate(-10deg)}
+.text8  { top: 160vh; left: 5vw;  width: 70vw; }
+.img7  { top: 140vh;  left: 10vw;   width: 120vw; transform: rotate(-10deg)}
 
-.text9  { top: 200vh; left: 5vw;  width: 95vw; }
+.text9  { top: 215vh; left: 5vw;  width: 95vw; }
 
-.text3  { top: 215vh; left: 5vw; width: 10vw; font-family: CocoBiker; font-size:3rem; }
-.img8  { top: 250vh;  left: -15vw;   width: 80vw; }
+.text3  { top: 240vh; left: 10vw; width: 60vw; font-family: CocoBiker; font-size:5rem; }
+.img8  { top: 270vh;  left: -15vw;   width: 80vw; }
 
-.text19 { top: 250vh; left: 45vw; width: 40vw; }
-.img9  { top: 280vh;  left: 0vw;   width: 100vw; }
+.text19 { top: 285vh; left: 45vw; width: 40vw; }
+.img9  { top: 310vh;  left: 0vw;   width: 100vw; }
 
 
-.text4  { top: -4vh; left: 38vw; width: 90vw;font-size: 2rem; }
+.text4  { top: -4vh; left: 50vw; width: 90vw;font-size: 3rem; }
 
 
 .text6  { top: 85vh; left: 15vw; width: 65vw; }
@@ -507,14 +546,14 @@ button {
 
 
 .text10 { top: 260vh; left: 80vw; width: 30vw; transform: rotate(-90deg);
-    font-size: 1.3rem;
+    font-size: 2rem;
   color:rgba(146, 146, 146, 0.427); 
   font-family:  "CocoBiker", sans-serif;
   font-weight: normal;
   text-shadow: 1px 0 currentColor, -1px 0 currentColor, 0 1px currentColor, 0 1px currentColor;}/*nayromuun*/
 
-.text11 { top: 175vh; left: -40vw;  width: 90vw; transform: rotate(-90deg);
-    font-size: 1.3rem;
+.text11 { top: 165vh; left: -40vw;  width: 90vw; transform: rotate(-90deg);
+    font-size: 2rem;
   color:rgba(146, 146, 146, 0.427); 
   font-family:  "CocoBiker", sans-serif;
   font-weight: normal;
@@ -567,15 +606,17 @@ button {
   width: 100vw;
   overflow: hidden;
   white-space: nowrap;
+    display: flex;
+
 }
 
 .text2 p {
   display: inline-block;
   padding-left: 100%;
-  animation: marquesinaContinua 15s linear infinite;
+  animation: scroll-infinito 30s linear infinite;
 }
 
-@keyframes marquesinaContinua {
+@keyframes scroll-infinito {
   from { transform: translateX(0); }
   to { transform: translateX(-100%); }
 }
