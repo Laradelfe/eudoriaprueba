@@ -1,0 +1,657 @@
+@font-face {
+    font-family: "CocoBiker";
+    src: url("data/CocoBiker Regular Trial.ttf") format("truetype");
+}
+@font-face {
+    font-family: "AncaCoder";
+    src: url("data/AnkaCoder-b.ttf") format("truetype");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+  font-family: AncaCoder;
+}
+ 
+
+
+body {
+  margin: 0;
+  /* Degradado vertical fijo */
+  background: linear-gradient(to bottom, #ffffff, #A6CBCC); 
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  
+}
+
+
+
+/* Pantallas */
+
+
+.pantalla {
+  display: none;
+  width: 100%;
+  height: 100vh;
+}
+
+/* --- Pantalla 1 --- */
+#pantalla1 {
+  display: flex;
+  justify-content: center; /* centra horizontalmente */
+  align-items: center;     /* centra verticalmente */
+  width: 100%;
+  height: 100vh;           /* ocupa toda la altura de la ventana */
+  background: linear-gradient(to bottom, #ffffff, #A6CBCC);
+  box-sizing: border-box;
+  font-family: CocoBiker;
+  color: #0c2f48;
+}
+
+.login-box {
+  padding: 20%;
+  border-radius: 5vb;
+  text-align: center;
+  
+}
+
+input {
+  font-family: AncaCoder;
+  padding: 0.5rem;
+  margin-top: 1rem;
+  width: 200px;
+  border: none;
+  border-radius: 2vb;
+}
+
+button {
+  font-family: AncaCoder;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  background: #2bbfc5;
+  color: white;
+  border-radius: 2vb;
+  cursor: pointer;
+}
+
+/* Pantalla 2 */
+
+#pantalla2 {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;  
+  overflow-y: auto;    
+
+}
+
+/* Portada */
+.portada {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+.portada img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  clip-path: inset(0 0 0 0); /* recorta el 30% inferior de la imagen */
+}
+
+#fondo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+}
+#sol {
+  position: absolute;
+  top: 15%; /* 3/4 hacia arriba (ajustá si querés más alto o más bajo) */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20vw; /* tamaño ajustable */
+  height: auto;
+  z-index: 2;
+}
+/* Luna */
+#luna {
+  width: 40vw;
+  height: auto;
+  position: absolute;
+  bottom: 10%;
+  top:10vh;
+
+
+  transition: left 1s linear; /* suaviza */
+    transform: translateX(-50%) rotate(0deg);
+  z-index: 5;
+  animation: girarLuna 10s linear infinite; /* Animación */
+}
+
+
+/* Oscurecer */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  opacity: 0;
+  transition: opacity 1s linear;
+  z-index: 3;
+}
+
+/* Contador */
+#contador {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: AncaCoder;
+  font-size: 8vh;
+  color: #0C2F48;
+  text-align: center;
+  padding: 1rem 2rem;
+  border-radius: 10%;
+  z-index: 4;
+}
+/* Contenido encima de la portada */
+.contenido {
+  position: relative; /* mantiene posiciones absolutas internas */
+  width: 100%;
+  min-height: 200vh; /* mantiene scroll vertical para contenido largo */
+  
+}
+
+.item {
+  position: absolute; /* mantiene tus posiciones originales */
+}
+
+.text4  { top: -12vh; left: 40vw; width: 90vw;
+    font-size: 8rem;
+}
+
+.text1  { top: 20vh;  left: 5vw; width: 35vw; font-size: 1.4rem; }
+.img3  { top: 20vh;   left: 60vw;   width: 40vw; }
+
+.text5  { top: 65vh; left: 25vw; width: 35vw; font-size: 1.4rem;}
+.img4  { top: 60vh;   left: 3vw;   width: 20vw; }
+
+
+
+.text2 {
+  position: absolute;
+  top: 120vh;
+  left: 0;
+  width: 100vw;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 1.4rem;
+}
+.text2 p {
+  display: inline-block;
+  padding-left: 100%;
+  animation: marquesinaContinua 20s linear infinite;
+}
+
+@keyframes marquesinaContinua {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
+
+.text7  { top: 150vh; left: 25vw; width: 45vw;font-size: 1.5rem; }/*alinear txt*/
+.img6  { top: 130vh;  left: -1vw;    width: 20vw; }
+.img5  { top: 140vh;  left: 75vw;    width: 25vw;}
+
+
+.text8  { top: 200vh; left: 10vw;  width: 60vw; font-size: 1.5rem;}
+.img7  { top: 160vh;  left: 40vw;   width: 70vw; }
+
+.text9  { top: 240vh; left: 5vw;  width: 40vw; font-size: 1.5rem;}
+
+.text3  { top: 290vh; left: 45vw; width: 30vw; font-family: CocoBiker; font-size:5.5rem; }
+.img8  { top: 295vh;  left: -15vw;   width: 55vw; }
+
+.text19 { top: 350vh; left: 45vw; width: 40vw; font-size: 1.5rem;}
+.img9  { top: 380vh;  left: 0vw;   width: 100vw; }
+
+
+
+
+
+.text6  { top: 85vh; left: 15vw; width: 65vw;font-size: 1.5rem; }
+
+
+.text10 { top: 330vh; left: 82vw; width: 30vw; transform: rotate(-90deg);
+   font-size: 3rem;
+  text-shadow: 1px 0 currentColor, -1px 0 currentColor, 0 1px currentColor, 0 1px currentColor;}/*nayromuun*/
+
+.text11 { top: -17vh; left: -43vw;  width: 90vw; transform: rotate(-90deg);
+    font-size: 2.5rem;
+  color:rgba(146, 146, 146, 0.427); 
+  font-family:  "CocoBiker", sans-serif;
+  font-weight: normal;
+  text-shadow: 1px 0 currentColor, -1px 0 currentColor, 0 1px currentColor, 0 1px currentColor;}/*nayromuun*/
+
+
+
+
+
+.imagen img {
+  width: 100%;
+  height: auto;
+  max-width: none;
+}
+
+/* -------------------- BASE -------------------- */
+
+.texto {
+  color: #0C2F48;
+  padding: 1rem;
+  border-radius: 10px;
+  font-family: AncaCoder;
+  line-height: 1.4;
+}
+.text4, .text10, .text11{
+  color:rgba(146, 146, 146, 0.599); 
+  font-family:  "CocoBiker", sans-serif;
+  font-weight: bold;
+}
+.text3{
+  color: #0C2F48;
+  font-family:  "CocoBiker", sans-serif;
+  font-weight: bold;
+}
+
+/* -------------------- MEDIA QUERIES -------------------- */
+
+<!--/* --- Laptops medianos (hasta 1440px) --- */
+@media (max-width: 1440px) and (min-width: 1025px) {
+  .texto {
+    font-size: 1.6rem;
+
+  }
+
+
+  /* --- Textos individuales con unidades relativas --- */
+.text4  { top: -12vh; left: 40vw; width: 90vw;
+    font-size: 8rem;
+}
+
+.text1  { top: 20vh;  left: 5vw; width: 35vw; font-size: 1.4rem; }
+.img3  { top: 20vh;   left: 60vw;   width: 40vw; }
+
+.text5  { top: 65vh; left: 25vw; width: 35vw; font-size: 1.4rem;}
+.img4  { top: 60vh;   left: 3vw;   width: 20vw; }
+
+
+
+.text2 {
+  position: absolute;
+  top: 120vh;
+  left: 0;
+  width: 100vw;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 1.4rem;
+}
+.text2 p {
+  display: inline-block;
+  padding-left: 100%;
+  animation: marquesinaContinua 20s linear infinite;
+}
+
+@keyframes marquesinaContinua {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
+
+.text7  { top: 150vh; left: 25vw; width: 45vw;font-size: 1.5rem; }/*alinear txt*/
+.img6  { top: 130vh;  left: -1vw;    width: 20vw; }
+.img5  { top: 140vh;  left: 75vw;    width: 25vw;}
+
+
+.text8  { top: 200vh; left: 10vw;  width: 60vw; font-size: 1.5rem;}
+.img7  { top: 160vh;  left: 40vw;   width: 70vw; }
+
+.text9  { top: 240vh; left: 5vw;  width: 40vw; font-size: 1.5rem;}
+
+.text3  { top: 290vh; left: 45vw; width: 30vw; font-family: CocoBiker; font-size:5.5rem; }
+.img8  { top: 295vh;  left: -15vw;   width: 55vw; }
+
+.text19 { top: 350vh; left: 45vw; width: 40vw; font-size: 1.5rem;}
+.img9  { top: 380vh;  left: 0vw;   width: 100vw; }
+
+
+
+
+
+.text6  { top: 85vh; left: 15vw; width: 65vw;font-size: 1.5rem; }
+
+
+.text10 { top: 330vh; left: 82vw; width: 30vw; transform: rotate(-90deg);
+   font-size: 3rem;
+  text-shadow: 1px 0 currentColor, -1px 0 currentColor, 0 1px currentColor, 0 1px currentColor;}/*nayromuun*/
+
+.text11 { top: -17vh; left: -43vw;  width: 90vw; transform: rotate(-90deg);
+    font-size: 2.5rem;
+  color:rgba(146, 146, 146, 0.427); 
+  font-family:  "CocoBiker", sans-serif;
+  font-weight: normal;
+  text-shadow: 1px 0 currentColor, -1px 0 currentColor, 0 1px currentColor, 0 1px currentColor;}/*nayromuun*/
+
+
+}
+
+/* --- Tablets grandes y medianas (hasta 1024px) --- */
+@media (max-width: 1024px) and (min-width: 769px) {
+  #luna {
+    width: 55vw;
+    top: 12vh;
+  }
+  .texto {
+    font-size: 1.4rem;
+    width: 70vw; /* más angosto para que no tape tanto */
+  }
+
+
+.text1  { top: 7vh;  left: 5vw; width: 35vw; }
+.img3  { top: 7vh;   left: 40vw;   width: 80vw; }
+
+.text5  { top: 45vh; left: 45vw; width: 55vw; }
+.img4  { top: 50vh;   left: 0vw;   width: 45vw; }
+
+
+.text2  { top: 85vh; left: 15vw; width: 100vw; }/*marquesina*/
+
+.text7  { top: 120vh; left: 20vw; width: 70vw; }/*alinear txt*/
+.img6  { top: 100vh;  left: 60vw;    width: 30vw; }
+.img5  { top: 140vh;  left: 0vw;    width: 35vw;}
+
+
+.text8  { top: 160vh; left: 5vw;  width: 80vw; }
+.img7  { top: 155vh;  left: 20vw;   width: 80vw; }
+
+.text9  { top: 210vh; left: 5vw;  width: 90vw; }
+
+.text3  { top: 230vh; left: 5vw; width: 10vw; font-family: CocoBiker; font-size:3rem; }
+.img8  { top: 265vh;  left: 0vw;   width: 60vw; }
+
+.text19 { top: 270vh; left: 45vw; width: 40vw; }
+.img9  { top: 295vh;  left: 0vw;   width: 100vw; }
+
+
+
+.text6  { top: 85vh; left: 15vw; width: 65vw; }
+
+
+
+.text10 { top: 275vh; left: 80vw; width: 30vw; transform: rotate(-90deg);
+    font-size: 1.7rem;
+  color:rgba(146, 146, 146, 0.599); 
+  font-family:  "CocoBiker", sans-serif;
+  font-weight: normal;
+  text-shadow: 1px 0 currentColor, -1px 0 currentColor, 0 1px currentColor, 0 1px currentColor;}/*nayromuun*/
+
+
+.text11 { top: 185vh; left: 5vw;  width: 90vw; }
+
+
+
+
+}
+
+/* --- Tablets chicas y celulares grandes (hasta 768px) --- */
+@media (max-width: 768px) and (min-width: 481px){
+  #luna {
+    width: 65vw;
+    top: 23vh;
+  }
+  #contador {
+    font-size: 2rem;
+    width: 90vh;
+  }
+  .texto {
+    font-size: 1.3rem;
+    width: 80vw;  /* mantiene posición pero se achica */
+    }
+    #fondo {
+    content: url("data/fondomobile.png");
+  }
+
+#sol {
+  position: absolute;
+  top: 25%; /* 3/4 hacia arriba (ajustá si querés más alto o más bajo) */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 35vw; /* tamaño ajustable */
+  height: auto;
+  z-index: 2;
+}
+
+.text1  { top: 10vh;  left: 5vw; width: 35vw; }
+.img3  { top: 10vh;   left: 40vw;   width: 80vw; }
+
+.text5  { top: 50vh; left: 45vw; width: 55vw; }
+.img4  { top: 55vh;   left: -10vw;   width: 55vw; }
+
+
+/*.text2  { top: 85vh; left: 15vw; width: 100vw; }/*marquesina*/
+.text2 {
+  position: absolute;
+  top: 90vh;
+  left: 0;
+  width: 100vw;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.text2 p {
+  display: inline-block;
+  padding-left: 100%;
+  animation: marquesinaContinua 15s linear infinite;
+}
+
+@keyframes marquesinaContinua {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
+
+/*.text7  { top: 120vh; left: 20vw; width: 70vw; }/*alinear txt*/
+.text7 {
+  top: 120vh;
+  left: 50%;
+  width: 70vw;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+
+.img6  { top: 100vh;  left: 60vw;    width: 30vw; }
+.img5  { top: 140vh;  left: 0vw;    width: 35vw;}
+
+
+.text8  { top: 160vh; left: 5vw;  width: 80vw; }
+.img7  { top: 150vh;  left: 10vw;   width: 120vw; transform: rotate(-10deg)}
+
+.text9  { top: 200vh; left: 5vw;  width: 95vw; }
+
+.text3  { top: 215vh; left: 5vw; width: 10vw; font-family: CocoBiker; font-size:3rem; }
+.img8  { top: 250vh;  left: -15vw;   width: 80vw; }
+
+.text19 { top: 250vh; left: 45vw; width: 40vw; }
+.img9  { top: 280vh;  left: 0vw;   width: 100vw; }
+
+
+.text4  { top: -4vh; left: 38vw; width: 90vw;font-size: 2rem; }
+
+
+.text6  { top: 85vh; left: 15vw; width: 65vw; }
+
+
+
+.text10 { top: 260vh; left: 80vw; width: 30vw; transform: rotate(-90deg);
+    font-size: 1.3rem;
+  color:rgba(146, 146, 146, 0.427); 
+  font-family:  "CocoBiker", sans-serif;
+  font-weight: normal;
+  text-shadow: 1px 0 currentColor, -1px 0 currentColor, 0 1px currentColor, 0 1px currentColor;}/*nayromuun*/
+
+.text11 { top: 175vh; left: -40vw;  width: 90vw; transform: rotate(-90deg);
+    font-size: 1.3rem;
+  color:rgba(146, 146, 146, 0.427); 
+  font-family:  "CocoBiker", sans-serif;
+  font-weight: normal;
+  text-shadow: 1px 0 currentColor, -1px 0 currentColor, 0 1px currentColor, 0 1px currentColor;}/*nayromuun*/
+
+
+
+}
+
+/* --- Celulares chicos (hasta 480px) --- */
+@media (max-width: 480px) {
+  #luna {
+    position: relative;
+    width: 75vw;
+    top: 23vh;
+  }
+  #contador {
+    font-size: 1.5rem;
+  }
+  .texto {
+    font-size: 1rem;
+    width: 85vw;
+  }
+    #fondo {
+    content: url("data/fondomobile.png");
+  }
+
+#sol {
+  position: absolute;
+  top: 25%; /* 3/4 hacia arriba (ajustá si querés más alto o más bajo) */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 35vw; /* tamaño ajustable */
+  height: auto;
+  z-index: 2;
+}
+
+.text1  { top: 10vh;  left: 5vw; width: 35vw; }
+.img3  { top: 10vh;   left: 40vw;   width: 80vw; }
+
+.text5  { top: 50vh; left: 45vw; width: 55vw; }
+.img4  { top: 55vh;   left: -10vw;   width: 55vw; }
+
+
+/*.text2  { top: 85vh; left: 15vw; width: 100vw; }/*marquesina*/
+.text2 {
+  position: absolute;
+  top: 90vh;
+  left: 0;
+  width: 100vw;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.text2 p {
+  display: inline-block;
+  padding-left: 100%;
+  animation: marquesinaContinua 15s linear infinite;
+}
+
+@keyframes marquesinaContinua {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
+
+/*.text7  { top: 120vh; left: 20vw; width: 70vw; }/*alinear txt*/
+.text7 {
+  top: 120vh;
+  left: 50%;
+  width: 70vw;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+
+.img6  { top: 100vh;  left: 60vw;    width: 30vw; }
+.img5  { top: 140vh;  left: 0vw;    width: 35vw;}
+
+
+.text8  { top: 160vh; left: 5vw;  width: 80vw; }
+.img7  { top: 150vh;  left: 10vw;   width: 120vw; transform: rotate(-10deg)}
+
+.text9  { top: 200vh; left: 5vw;  width: 95vw; }
+
+.text3  { top: 215vh; left: 5vw; width: 10vw; font-family: CocoBiker; font-size:3rem; }
+.img8  { top: 250vh;  left: -15vw;   width: 80vw; }
+
+.text19 { top: 250vh; left: 45vw; width: 40vw; }
+.img9  { top: 280vh;  left: 0vw;   width: 100vw; }
+
+
+.text4  { top: -4vh; left: 38vw; width: 90vw;font-size: 2rem; }
+
+
+.text6  { top: 85vh; left: 15vw; width: 65vw; }
+
+
+
+.text10 { top: 260vh; left: 80vw; width: 30vw; transform: rotate(-90deg);
+    font-size: 1.3rem;
+  color:rgba(146, 146, 146, 0.427); 
+  font-family:  "CocoBiker", sans-serif;
+  font-weight: normal;
+  text-shadow: 1px 0 currentColor, -1px 0 currentColor, 0 1px currentColor, 0 1px currentColor;}/*nayromuun*/
+
+.text11 { top: 175vh; left: -40vw;  width: 90vw; transform: rotate(-90deg);
+    font-size: 1.3rem;
+  color:rgba(146, 146, 146, 0.427); 
+  font-family:  "CocoBiker", sans-serif;
+  font-weight: normal;
+  text-shadow: 1px 0 currentColor, -1px 0 currentColor, 0 1px currentColor, 0 1px currentColor;}/*nayromuun*/
+
+
+
+
+/*.text14 { top: 225vh; left: 5vw;  width: 90vw; }
+.text15 { top: 233vh; left: 5vw;  width: 90vw; }
+.text16 { top: 240vh; left: 5vw;  width: 20vw; }
+.text17 { top: 258vh; left: 5vw; width: 20vw; }
+.text18 { top: 283vh; left: 5vw;  width: 90vw; }
+
+
+
+.img1  { top: -15vh;   left: 0vw;    width: 0vw; }
+.img2  { top: -5vh;   left: 87vw;   width: 20vw; }*/
+
+
+
+
+
+
+/*.img13 { top: 250vh;  left: 30vw;   width: 30vw; width: 60%; height: auto;}
+
+.img10 { top: 305vh;  left: 1vw;   width: 60vw;transform: rotate(-90deg);clip-path: inset(0 40% 0 0); }
+.img11 { top: 305vh;  left: 50vw;   width: 60vw; transform: rotate(-90deg); clip-path: inset(0 20% 0 0); }
+.img12 { top: 315vh;  left: 60vw;   width: 60vw;transform: rotate(180deg);  }
+.img14 { top: 310vh;  left: 20vw;   width: 70vw; }*/
+
+}
